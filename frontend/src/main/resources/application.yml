@@ -1,0 +1,19 @@
+# application.yml for services
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/code-competition
+        registration:
+          keycloak:
+            client-id: web-app
+            authorization-grant-type: authorization_code
+            scope: openid,profile,email
+
+keycloak:
+  auth-server-url: http://localhost:8080
+  realm: code-competition
+  resource: web-app
+  public-client: true

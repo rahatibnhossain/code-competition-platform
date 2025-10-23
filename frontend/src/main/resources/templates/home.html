@@ -1,0 +1,22 @@
+<!-- frontend/src/main/resources/templates/home.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Code Competition Platform</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<nav th:replace="fragments/header :: header"></nav>
+
+<div class="container">
+    <h1>Welcome to Code Competition Platform</h1>
+    <div th:if="${#authentication == null}">
+        <a href="/login" class="btn btn-primary">Login</a>
+        <a href="/problems" class="btn btn-secondary">Browse Problems</a>
+    </div>
+    <div th:if="${#authentication != null}">
+        <a href="/dashboard" class="btn btn-primary">Go to Dashboard</a>
+    </div>
+</div>
+</body>
+</html>

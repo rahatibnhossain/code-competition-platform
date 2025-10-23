@@ -1,0 +1,22 @@
+<!-- frontend/src/main/resources/templates/fragments/header.html -->
+<nav xmlns:th="http://www.thymeleaf.org" class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">CodeComp</a>
+        <div class="nav-menu">
+            <a href="/problems" class="nav-link">Problems</a>
+            <div th:if="${#authentication != null}">
+                <a href="/dashboard" class="nav-link">Dashboard</a>
+                <a href="/submissions" class="nav-link">My Submissions</a>
+                <div sec:authorize="hasRole('problem_setter')">
+                    <a href="/problem-setter/create" class="nav-link">Create Problem</a>
+                </div>
+                <div sec:authorize="hasRole('admin')">
+                    <a href="/admin/users" class="nav-link">Admin</a>
+                </div>
+                <form th:action="@{/logout}" method="post" class="nav-link">
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
