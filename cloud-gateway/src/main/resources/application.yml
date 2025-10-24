@@ -23,3 +23,10 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     hostname: localhost
+
+
+security:
+  oauth2:
+    resourceserver:
+      jwt:
+        issuer-uri: http://192.168.1.175:8080/realms/code-competition
