@@ -10,11 +10,11 @@ spring:
         - id: problem-service
           uri: lb://PROBLEM-SERVICE
           predicates:
-            - Path=/problem/**
+            - Path=/api/problem**
         - id: submission-service
           uri: lb://SUBMISSION-SERVICE
           predicates:
-            - Path=/submission/**
+            - Path=/api/submissions**
 eureka:
   client:
     register-with-eureka: true
